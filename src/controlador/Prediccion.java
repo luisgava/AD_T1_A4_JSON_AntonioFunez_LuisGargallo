@@ -1,7 +1,6 @@
 package controlador;
 
 public class Prediccion {
-	
 	// De "city":
 	private String pais;
 	private String ciudad;
@@ -12,6 +11,51 @@ public class Prediccion {
 	private String minTemp;
 	private String maxtemp;
 	private String icono;
+	
+	// Getters y Setters
+	public String getPais() {
+		return pais;
+	}
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+	public String getCiudad() {
+		return ciudad;
+	}
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+	public String getDia() {
+		return dia;
+	}
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+	public String getTiempo() {
+		return tiempo;
+	}
+	public void setTiempo(String tiempo) {
+		this.tiempo = tiempo;
+	}
+	public String getMinTemp() {
+		return minTemp;
+	}
+	public void setMinTemp(String minTemp) {
+		this.minTemp = minTemp;
+	}
+	public String getMaxtemp() {
+		return maxtemp;
+	}
+	public void setMaxtemp(String maxtemp) {
+		this.maxtemp = maxtemp;
+	}
+	public String getIcono() {
+		return icono;
+	}
+	public void setIcono(String icono) {
+		this.icono = icono;
+	}
+
 
 }
 

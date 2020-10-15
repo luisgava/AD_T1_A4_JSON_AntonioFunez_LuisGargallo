@@ -12,6 +12,11 @@ public class Prediccion {
 	private String maxtemp;
 	private String icono;
 	
+	@Override
+	public String toString() {
+		return "Prediccion [pais=" + pais + ", ciudad=" + ciudad + ", dia=" + dia + ", tiempo=" + tiempo + ", minTemp="
+				+ minTemp + ", maxtemp=" + maxtemp + ", icono=" + icono + "]";
+	}
 	// Getters y Setters
 	public String getPais() {
 		return pais;

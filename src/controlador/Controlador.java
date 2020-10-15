@@ -22,7 +22,7 @@ public class Controlador {
 	}
 	
 	//obtener lista de ciudades del fichero de propiedades
-	Properties configuracion = new Properties();
+	Properties configuracion = new Properties();	
 	configuracion.load(new FileReader("src/resources/config.properties"));
 	Set<String> ciudades = configuracion.stringPropertyNames();
 	//leer fichero de propiedades

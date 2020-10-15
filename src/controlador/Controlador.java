@@ -13,7 +13,7 @@ public class Controlador {
 
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			data = mapper.readValue(new File(pathname), Libros.class);
+			data = mapper.readValue(new File(pathname), Prediccion.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

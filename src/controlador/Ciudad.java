@@ -1,7 +1,6 @@
 package controlador;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Ciudad {
 ArrayList<String[]> city;

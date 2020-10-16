@@ -1,4 +1,4 @@
-package controlador;
+package modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

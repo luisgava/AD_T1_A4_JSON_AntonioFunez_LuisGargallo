@@ -1,13 +1,12 @@
 package controlador;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
 import java.util.Properties;
 import java.util.Set;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Controlador {
@@ -40,17 +39,18 @@ public class Controlador {
 	 * @param pathname
 	 * @return
 	 */
-	public Ciudad fromFileToObject(URL url) {
+	public City fromFileToObject(URL url) {
 		// Objeto que guardará los datos.
-		Ciudad datos = null;
+		City datosCiudades = null;
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();
-			datos = mapper.readValue(url, Ciudad.class); // falla porque tenemos que seleccionar los datos y poner
+		//	mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true); // Pasa por alto city
+			datosCiudades = mapper.readValue(url, City.class); // falla porque tenemos que seleccionar los datos y poner
 																// las propiedades apropiadas en la clase.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return datos;
+		return datosCiudades;
 	}
 }

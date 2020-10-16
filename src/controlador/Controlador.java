@@ -39,14 +39,13 @@ public class Controlador {
 	 * @param pathname
 	 * @return
 	 */
-	public City fromFileToObject(URL url) {
+	public Prediccion fromFileToObject(URL url) {
 		// Objeto que guardará los datos.
-		City datosCiudades = null;
+		Prediccion datosCiudades = null;
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true); // Pasa por alto city
-			datosCiudades = mapper.readValue(url, City.class); // falla porque tenemos que seleccionar los datos y poner
+			datosCiudades = mapper.readValue(url, Prediccion.class); // falla porque tenemos que seleccionar los datos y poner
 																// las propiedades apropiadas en la clase.
 		} catch (IOException e) {
 			e.printStackTrace();

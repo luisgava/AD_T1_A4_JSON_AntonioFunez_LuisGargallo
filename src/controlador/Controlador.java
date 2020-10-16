@@ -6,11 +6,17 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.Set;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import modelo.Prediccion;
 
 public class Controlador {
 
+	/**
+	 * método para obtener las url de las ciudades
+	 * 
+	 * @return
+	 */
 	public URL obtenerCiudadesFichero() {
 		// Obtenemos la lista de ciudades del fichero de propiedades
 		Properties configuracion = new Properties();

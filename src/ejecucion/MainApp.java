@@ -2,8 +2,7 @@ package ejecucion;
 
 import java.net.URL;
 import controlador.Controlador;
-import controlador.Prediccion;
-import controlador.City;
+import modelo.Prediccion;
 
 public class MainApp {
 

@@ -1,5 +1,8 @@
 package controlador;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties (ignoreUnknown = true)
 public class ForecastDay {
 String forecastDate; // fecha de la prediccion
 String weather;

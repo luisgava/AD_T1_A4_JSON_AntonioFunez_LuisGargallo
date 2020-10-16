@@ -45,7 +45,7 @@ public class Controlador {
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();
-		//	mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true); // Pasa por alto city
+			mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true); // Pasa por alto city
 			datosCiudades = mapper.readValue(url, City.class); // falla porque tenemos que seleccionar los datos y poner
 																// las propiedades apropiadas en la clase.
 		} catch (IOException e) {

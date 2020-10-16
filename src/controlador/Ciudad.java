@@ -2,8 +2,14 @@ package controlador;
 
 import java.util.List;
 
-public class Prediccion {
+public class Ciudad {
 List<String> city;
+private String ciudad;
+
+public void setCiudad(String ciudad) {
+	this.ciudad = ciudad;
+	
+}
 
 
 }

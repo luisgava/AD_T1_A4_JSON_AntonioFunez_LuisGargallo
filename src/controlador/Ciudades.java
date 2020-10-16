@@ -2,20 +2,20 @@ package controlador;
 
 import java.util.List;
 
-public class Predicciones {
+public class Ciudades {
 	
-	private List<Prediccion> predicciones = null;
+	private List<Ciudad> predicciones = null;
 
 	@Override
 	public String toString() {
 		return "Predicciones [predicciones=" + predicciones + "]";
 	}
 
-	public List<Prediccion> getPredicciones() {
+	public List<Ciudad> getPredicciones() {
 		return predicciones;
 	}
 
-	public void setPredicciones(List<Prediccion> predicciones) {
+	public void setPredicciones(List<Ciudad> predicciones) {
 		this.predicciones = predicciones;
 	}
 }

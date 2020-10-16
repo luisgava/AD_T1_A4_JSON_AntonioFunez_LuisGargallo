@@ -1,15 +1,30 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ciudad {
-List<String> city;
-private String ciudad;
+ArrayList<String[]> city;
 
-public void setCiudad(String ciudad) {
-	this.ciudad = ciudad;
-	
+@Override
+public String toString() {
+	return "Ciudad [city=" + city + "]";
 }
+
+public ArrayList<String[]> getCity() {
+	return city;
+}
+
+public void setCity(ArrayList<String[]> city) {
+	this.city = city;
+}
+
+public Ciudad(ArrayList<String[]> city) {
+	super();
+	this.city = city;
+}
+
+
 
 
 }

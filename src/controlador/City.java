@@ -6,12 +6,9 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonRootName(value = "city") // empieza a mappear aqui y la clase prediccion en principio sobra
 public class City {
-	@Override
-	public String toString() {
-		return "City [cityName=" + cityName + ", forecast=" + forecast + "]";
-	}
 
 	String cityName;
+	Forecast forecast;
 
 	public String getCityName() {
 		return cityName;
@@ -29,5 +26,8 @@ public class City {
 		this.forecast = forecast;
 	}
 
-	Forecast forecast;
+	@Override
+	public String toString() {
+		return "City [cityName=" + cityName + ", forecast=" + forecast + "]";
+	}
 }

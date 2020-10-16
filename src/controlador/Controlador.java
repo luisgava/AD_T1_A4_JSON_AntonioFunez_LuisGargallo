@@ -24,7 +24,7 @@ public class Controlador {
 		
 		
 		//leer fichero de propiedades
-		String direccionCiudad =  configuracion.getProperty("Frankfurt");
+		String direccionCiudad =  configuracion.getProperty("Frankfurt"); // el nombre de la ciudad debe ponerlo el botón
 		url = new URL(direccionCiudad);
 	} catch (IOException e) {
 		e.printStackTrace();
@@ -44,6 +44,7 @@ public class Controlador {
 		
 		try {
 			ObjectMapper mapper = new ObjectMapper();
+			data.city = mapper.readValue
 			data = mapper.readValue(url, Prediccion.class);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -58,8 +58,8 @@ public class Principal_Interface extends JFrame {
 	
 	public Principal_Interface() {
 		
-		String sIcon="C:\\Users\\alu01-dam2\\git\\AD_T1_A4_JSON_AntonioFunez_LuisGargallo\\icon\\iconoBandera.png";
-		String sMapa="C:\\Users\\alu01-dam2\\git\\AD_T1_A4_JSON_AntonioFunez_LuisGargallo\\icon\\alemania 1280x1280.jpg";
+		String sIcon="icon\\iconoBandera.png";
+		String sMapa="icon\\alemania 1280x1280.jpg";
 		int ancho = 600;
 		int alto = 600;
 		

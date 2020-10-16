@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonRootName(value = "city") // empieza a mappear aqui
+@JsonRootName(value = "city") // empieza a mappear aqui y la clase prediccion en principio sobra
 public class City {
 	@Override
 	public String toString() {

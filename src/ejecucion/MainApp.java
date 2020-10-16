@@ -8,14 +8,14 @@ import vista.Vista;
 public class MainApp {
 
 	public static void main(String[] args) {
-		Controlador control = new Controlador();
-		String nombreCiudad = null;
-		Vista frame = new Vista();
-		frame.setVisible(true);
-		URL url = control.obtenerCiudadesFichero(nombreCiudad);
-		Prediccion prueba = control.fromFileToObject(url);
-
-		System.out.println(prueba.getCity().getForecast().getForecastDay().get(0).getMaxTemp());
+	
+		Vista vista = new Vista();
+		Prediccion datos = null;
+		Controlador control = new Controlador(vista, datos);
+		control.inciarVista();
+		
+		
+		
 		
 
 	}

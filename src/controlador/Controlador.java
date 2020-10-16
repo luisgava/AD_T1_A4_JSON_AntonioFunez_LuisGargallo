@@ -1,5 +1,7 @@
 package controlador;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
@@ -14,7 +16,21 @@ import vista.Vista;
 public class Controlador {
 	
 Vista vista;
-Prediccion datosCiudades;
+Prediccion datos;
+Listen lis = new Listen();
+
+	public Controlador(Vista vista, Prediccion datos) {
+	this.vista = vista;
+	this.datos=datos;
+	
+	this.vista.btBerlin.addActionListener(lis);
+	this.vista.btBremen.addActionListener(lis);
+	this.vista.btEssen.addActionListener(lis);
+
+}
+	public void inciarVista() {
+		vista.setVisible(true);
+	}
 
 	/**
 	 * método para obtener las url de las ciudades
@@ -22,7 +38,7 @@ Prediccion datosCiudades;
 	 * 
 	 * @return
 	 */
-	public URL obtenerCiudadesFichero(String nombreCiudad) {
+	public URL obtenerCiudadesFichero() {
 		// Obtenemos la lista de ciudades del fichero de propiedades
 		Properties configuracion = new Properties();
 
@@ -34,7 +50,7 @@ Prediccion datosCiudades;
 			Set<String> ciudades = configuracion.stringPropertyNames();
 
 			// leemos el fichero de propiedades
-			String direccionCiudad = configuracion.getProperty("Frankfurt"); // el nombre de la ciudad debe ponerlo el
+			String direccionCiudad = configuracion.getProperty(vista.getNombreCiudad()); // el nombre de la ciudad debe ponerlo el
 																				// botón
 			url = new URL(direccionCiudad); // pasamos el String a URL
 		} catch (IOException e) {
@@ -56,11 +72,22 @@ Prediccion datosCiudades;
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();
-			datosCiudades = mapper.readValue(url, Prediccion.class); // falla porque tenemos que seleccionar los datos y poner
+			datos = mapper.readValue(url, Prediccion.class); // falla porque tenemos que seleccionar los datos y poner
 																// las propiedades apropiadas en la clase.
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return datosCiudades;
+		return datos;
+	}
+	
+	public class Listen implements ActionListener{
+
+		public void actionPerformed(ActionEvent ae) {
+			
+			vista.setNombreCiudad(ae.getActionCommand());
+			fromFileToObject(obtenerCiudadesFichero());
+			System.out.println(vista.getNombreCiudad());
+			
+		}
 	}
 }

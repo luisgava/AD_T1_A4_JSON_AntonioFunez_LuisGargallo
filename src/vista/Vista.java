@@ -41,8 +41,18 @@ public class Vista extends JFrame {
 
 
 
-	Listen lis = new Listen();
+
 	String nombreCiudad;
+	public JButton btBerlin;
+	public JButton btBremen;
+	public JButton btEssen;
+	
+		public String getNombreCiudad() {
+		return nombreCiudad;
+	}
+	public void setNombreCiudad(String nombreCiudad) {
+		this.nombreCiudad = nombreCiudad;
+	}
 		/**
 	 * Create the frame.
 	 */
@@ -53,6 +63,7 @@ public class Vista extends JFrame {
 		int ancho = 600;
 		int alto = 600; 
 		
+		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(sIcon));
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,26 +73,24 @@ public class Vista extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btBerlin = new JButton("Berlin");
+		btBerlin = new JButton("Berlín");
 		btBerlin.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btBerlin.setBounds(375, 173, 67, 23);
 		btBerlin.setBorder(null);
 		btBerlin.setContentAreaFilled(false);
-		btBerlin.addActionListener(lis);
 		
-		JButton btBremen = new JButton("Bremen");
+		
+		btBremen = new JButton("Bremen");
 		btBremen.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btBremen.setBounds(209, 162, 67, 23);
 		btBremen.setBorder(null);
 		btBremen.setContentAreaFilled(false);
-		btBremen.addActionListener(lis);
 		
-		JButton btEssen = new JButton("Essen");
+		btEssen = new JButton("Essen");
 		btEssen.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btEssen.setBounds(167, 213, 50, 23);
 		btEssen.setBorder(null);
 		btEssen.setContentAreaFilled(false);
-		btEssen.addActionListener(lis);
 		
 		
 		contentPane.add(btEssen);
@@ -110,16 +119,7 @@ public class Vista extends JFrame {
 		
 	}
 	
-	public class Listen implements ActionListener{
 
-		public void actionPerformed(ActionEvent ae) {
-			
-			nombreCiudad = ae.getActionCommand();
-			
-			System.out.println(nombreCiudad);
-			
-		}
-	}
 }
 
 /*De la clase City (prediccion.getCity().getcityName()):

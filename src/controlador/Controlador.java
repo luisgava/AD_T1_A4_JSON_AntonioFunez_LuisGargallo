@@ -1,5 +1,6 @@
 package controlador;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -10,31 +11,45 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Controlador {
 	
+	
+	
+	public URL obtenerCiudadesFichero () {
+	// Obtenemos la lista de ciudades del fichero de propiedades
+	Properties configuracion = new Properties();	
+	
+	URL url = null;
+	try {
+		configuracion.load(new FileReader("src/resources/config.properties.xml"));
+		Set<String> ciudades = configuracion.stringPropertyNames();
+		
+		
+		//leer fichero de propiedades
+		String direccionCiudad =  configuracion.getProperty("Frankfurt");
+		url = new URL(direccionCiudad);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	System.out.println(url);
+	return url;
+	}
+	
+	
 	/**
 	 * Deserializa el string en formato JSON en un objeto JAVA
 	 * @param pathname
 	 * @return
 	 */
-	public Prediccion fromFileToObject(String pathname) {
+	public Prediccion fromFileToObject(URL url) {
 		Prediccion data = null;
-		URL enlace = new URL("http://worldweather.wmo.int/es/json/" + numCiudad +"_es.xml");
+		
 		try {
 			ObjectMapper mapper = new ObjectMapper();
-			data = mapper.readValue(new File(pathname), Prediccion.class);
+			data = mapper.readValue(url, Prediccion.class);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return data;
 
 	}
-	
-	//obtener lista de ciudades del fichero de propiedades
-	Properties configuracion = new Properties();	
-	
-	configuracion.load(new FileReader("src/resources/config.properties"));
-	Set<String> ciudades = configuracion.stringPropertyNames();
-	//leer fichero de propiedades
-	String fichero = configuracion.getProperty("ciudad_real");
-
 
 }

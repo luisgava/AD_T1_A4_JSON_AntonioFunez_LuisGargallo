@@ -9,15 +9,20 @@ import java.util.Set;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import modelo.Prediccion;
+import vista.Vista;
 
 public class Controlador {
+	
+Vista vista;
+Prediccion datosCiudades;
 
 	/**
 	 * método para obtener las url de las ciudades
+	 * @param nombreCiudad 
 	 * 
 	 * @return
 	 */
-	public URL obtenerCiudadesFichero() {
+	public URL obtenerCiudadesFichero(String nombreCiudad) {
 		// Obtenemos la lista de ciudades del fichero de propiedades
 		Properties configuracion = new Properties();
 
@@ -47,7 +52,7 @@ public class Controlador {
 	 */
 	public Prediccion fromFileToObject(URL url) {
 		// Objeto que guardará los datos.
-		Prediccion datosCiudades = null;
+		
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();

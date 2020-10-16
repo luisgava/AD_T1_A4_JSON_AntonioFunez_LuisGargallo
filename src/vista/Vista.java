@@ -30,7 +30,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Font;
 
-public class Principal_Interface extends JFrame {
+public class Vista extends JFrame {
 
 	private JPanel contentPane;
 
@@ -38,30 +38,20 @@ public class Principal_Interface extends JFrame {
 	 * Launch the application.
 	 */
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Principal_Interface frame = new Principal_Interface();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
-	/**
+
+
+	Listen lis = new Listen();
+	String nombreCiudad;
+		/**
 	 * Create the frame.
 	 */
-	Listen lis = new Listen();
-	
-	public Principal_Interface() {
-		
-		String sIcon="icon\\iconoBandera.png";
-		String sMapa="icon\\alemania 1280x1280.jpg";
+	public Vista() {
+		this.nombreCiudad = nombreCiudad;
+		String sIcon="src/resources/iconoBandera.png";
+		String sMapa="src/resources/alemania 1280x1280.jpg";
 		int ancho = 600;
-		int alto = 600;
+		int alto = 600; 
 		
 		setIconImage(Toolkit.getDefaultToolkit().getImage(sIcon));
 		
@@ -120,16 +110,24 @@ public class Principal_Interface extends JFrame {
 		
 	}
 	
-	class Listen implements ActionListener{
+	public class Listen implements ActionListener{
 
 		public void actionPerformed(ActionEvent ae) {
 			
-			String select = ae.getActionCommand();
+			nombreCiudad = ae.getActionCommand();
 			
-			System.out.println(select);
+			System.out.println(nombreCiudad);
 			
 		}
 	}
 }
 
-
+/*De la clase City (prediccion.getCity().getcityName()):
+ * String cityName;
+ * de la clase ForecastDay (prediccion.getCity().getForecastDate().getCadaUnaDeLasCosas()):
+	String forecastDate; // fecha de la prediccion
+	String weather;
+	String minTemp;
+	String maxTemp;
+	String weatherIcon;
+ * */

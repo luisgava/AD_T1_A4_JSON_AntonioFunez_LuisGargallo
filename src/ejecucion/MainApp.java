@@ -1,6 +1,5 @@
 package ejecucion;
 
-import java.net.URL;
 import controlador.Controlador;
 import modelo.Prediccion;
 import vista.Vista;
@@ -16,9 +15,6 @@ public class MainApp {
 		Controlador control = new Controlador(vista, vp, datos);
 		control.inciarVista();
 		
-		Prediccion pred = new Prediccion();
-		
-
 	}
 }
 

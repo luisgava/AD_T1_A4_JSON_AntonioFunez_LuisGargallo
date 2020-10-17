@@ -18,14 +18,15 @@ public class Controlador {
 	
 Vista vista;
 VistaPre vPre;
-Prediccion datos;
+Prediccion prediccion;
 Listen lis = new Listen();
 
 	public Controlador(Vista vista, VistaPre vp, Prediccion datos) {
 	this.vista = vista;
-	this.datos=datos;
+	this.prediccion=datos;
 	this.vPre=vp;
 	
+	// Listeners para los botones de la vista.
 	this.vista.btBerlin.addActionListener(lis);
 	this.vista.btBremen.addActionListener(lis);
 	this.vista.btEssen.addActionListener(lis);
@@ -64,7 +65,7 @@ Listen lis = new Listen();
 			// cargamos el fichero de propiedades en configuracion
 			configuracion.load(new FileReader("src/resources/config.properties.xml"));
 			// sacamos la lista de ciudades y su url a un set
-			Set<String> ciudades = configuracion.stringPropertyNames();
+	//		Set<String> ciudades = configuracion.stringPropertyNames();
 
 			// leemos el fichero de propiedades
 			String direccionCiudad = configuracion.getProperty(vista.getNombreCiudad()); // el nombre de la ciudad debe ponerlo el
@@ -89,12 +90,11 @@ Listen lis = new Listen();
 		try {
 			// Mapeador que permite guardar los datos del JSON en la clase elegida.
 			ObjectMapper mapper = new ObjectMapper();
-			datos = mapper.readValue(url, Prediccion.class); // falla porque tenemos que seleccionar los datos y poner
-																// las propiedades apropiadas en la clase.
+			prediccion = mapper.readValue(url, Prediccion.class); 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return datos;
+		return prediccion;
 	}
 	
 	public class Listen implements ActionListener{
@@ -104,6 +104,28 @@ Listen lis = new Listen();
 			vista.setNombreCiudad(ae.getActionCommand());
 			fromFileToObject(obtenerCiudadesFichero());
 			
+			setDia();
+			
+			
+		}
+
+		private void setDia() {
+			vista.lblinfoNombreciudad.setText(prediccion.getCity().getCityName());
+			vista.lblinfoDia.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getDay()); //Día 1 por el get(0), hay que hacer esto automático para no repetir cuatro veces el setDia()
+			vista.lblinfoTempMax.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()); 
+			vista.lblinfoTempMin.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()); 
+			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather()); 
+		//	vista.lblIcono.setIcon(icon);(prediccion.getCity().getForecast().getForecastDay().get(0).getWeatherIcon()); 
 		}
 	}
 }
+
+/*De la clase City (prediccion.getCity().getcityName()):
+ * String cityName;
+ * de la clase ForecastDay (prediccion.getCity().getForecastDate().getCadaUnaDeLasCosas()):
+	String forecastDate; // fecha de la prediccion
+	String weather;
+	String minTemp;
+	String maxTemp;
+	String weatherIcon;
+ * */

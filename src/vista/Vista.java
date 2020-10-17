@@ -29,6 +29,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 public class Vista extends JFrame {
 
@@ -40,7 +41,20 @@ public class Vista extends JFrame {
 	
 	String nombreCiudad;
 	public JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
-	private JLabel lblNewLabel;
+	
+	private JPanel panelResultados;
+	public JLabel lblIcono;
+	private JLabel lblTiempo;
+	private JLabel lblTempMin;
+	private JLabel lblTempMax;
+	private JLabel lblDía;	
+	private JLabel lblNombreCiudad; 
+	
+	public JLabel lblinfoNombreciudad;
+	public JLabel lblinfoDia;
+	public JLabel lblinfoTempMax;
+	public JLabel lblinfoTempMin;
+	public JLabel lblinfoTiempo;
 
 	
 		public String getNombreCiudad() {
@@ -136,11 +150,6 @@ public class Vista extends JFrame {
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
 		
-		lblNewLabel = new JLabel("");
-		lblNewLabel.setToolTipText("");
-		lblNewLabel.setBounds(-16, 26, 617, 40);
-		contentPane.add(lblNewLabel);
-		
 		contentPane.add(btBerlin);
 		contentPane.add(btFrank);
 		contentPane.add(btEssen);
@@ -157,7 +166,7 @@ public class Vista extends JFrame {
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 0, 601, 582);
+		lbFondo.setBounds(0, 47, 594, 535);
 	
 		ImageIcon map = new ImageIcon(sMapa);
 		this.repaint();
@@ -165,6 +174,45 @@ public class Vista extends JFrame {
 		lbFondo.setIcon(iconFondo);
 		
 				contentPane.add(lbFondo);	
+				
+				panelResultados = new JPanel();
+				panelResultados.setBackground(Color.WHITE);
+				panelResultados.setBounds(0, 0, 594, 49);
+				contentPane.add(panelResultados);
+				panelResultados.setLayout(new GridLayout(2, 6, 0, 0));
+				
+				lblNombreCiudad = new JLabel("Ciudad");
+				panelResultados.add(lblNombreCiudad);
+				
+				lblDía = new JLabel("D\u00EDa");
+				panelResultados.add(lblDía);
+				
+				lblTempMax = new JLabel("Temp. m\u00E1xima");
+				panelResultados.add(lblTempMax);
+				
+				lblTempMin = new JLabel("Temp. M\u00EDnima");
+				panelResultados.add(lblTempMin);
+				
+				lblTiempo = new JLabel("Tiempo");
+				panelResultados.add(lblTiempo);
+				
+				lblIcono = new JLabel("     ");
+				panelResultados.add(lblIcono);
+				
+				lblinfoNombreciudad = new JLabel("");
+				panelResultados.add(lblinfoNombreciudad);
+				
+				lblinfoDia = new JLabel("");
+				panelResultados.add(lblinfoDia);
+				
+				lblinfoTempMax = new JLabel("");
+				panelResultados.add(lblinfoTempMax);
+				
+				lblinfoTempMin = new JLabel("");
+				panelResultados.add(lblinfoTempMin);
+				
+				lblinfoTiempo = new JLabel("");
+				panelResultados.add(lblinfoTiempo);
 		
 		
 	}

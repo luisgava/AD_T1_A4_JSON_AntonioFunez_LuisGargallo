@@ -1,5 +1,6 @@
 package controlador;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileReader;
@@ -8,23 +9,23 @@ import java.net.URL;
 import java.util.Properties;
 import java.util.Set;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import modelo.Prediccion;
 import vista.Vista;
-import vista.VistaPre;
 
 public class Controlador {
 	
 Vista vista;
-VistaPre vPre;
 Prediccion prediccion;
 Listen lis = new Listen();
 
-	public Controlador(Vista vista, VistaPre vp, Prediccion datos) {
+	public Controlador(Vista vista, Prediccion datos) {
 	this.vista = vista;
 	this.prediccion=datos;
-	this.vPre=vp;
 	
 	// Listeners para los botones de la vista.
 	this.vista.btBerlin.addActionListener(lis);
@@ -110,12 +111,16 @@ Listen lis = new Listen();
 		}
 
 		private void setDia() {
+			
 			vista.lblinfoNombreciudad.setText(prediccion.getCity().getCityName());
 			vista.lblinfoDia.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getDay()); //Día 1 por el get(0), hay que hacer esto automático para no repetir cuatro veces el setDia()
 			vista.lblinfoTempMax.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()); 
 			vista.lblinfoTempMin.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()); 
-			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather()); 
+			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather());
+			
 		//	vista.lblIcono.setIcon(icon); este depende de weather. Hay que ver, renombrar y usar los iconos de AEMET.
+			
+			
 		}
 	}
 }

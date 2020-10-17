@@ -55,6 +55,7 @@ public class Vista extends JFrame {
 	public JLabel lblinfoTempMax;
 	public JLabel lblinfoTempMin;
 	public JLabel lblinfoTiempo;
+	public JLabel lbIconoTiempo;
 
 	
 		public String getNombreCiudad() {
@@ -166,7 +167,7 @@ public class Vista extends JFrame {
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 47, 594, 535);
+		lbFondo.setBounds(0, 71, 594, 490);
 	
 		ImageIcon map = new ImageIcon(sMapa);
 		this.repaint();
@@ -177,9 +178,9 @@ public class Vista extends JFrame {
 				
 				panelResultados = new JPanel();
 				panelResultados.setBackground(Color.WHITE);
-				panelResultados.setBounds(0, 0, 594, 49);
+				panelResultados.setBounds(0, 11, 594, 49);
 				contentPane.add(panelResultados);
-				panelResultados.setLayout(new GridLayout(2, 6, 0, 0));
+				panelResultados.setLayout(new GridLayout(2, 8, 0, 0));
 				
 				lblNombreCiudad = new JLabel("Ciudad");
 				panelResultados.add(lblNombreCiudad);
@@ -213,7 +214,6 @@ public class Vista extends JFrame {
 				
 				lblinfoTiempo = new JLabel("");
 				panelResultados.add(lblinfoTiempo);
-		
 		
 	}
 }

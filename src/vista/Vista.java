@@ -40,6 +40,7 @@ public class Vista extends JFrame {
 	
 	String nombreCiudad;
 	public JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
+	private JLabel lblNewLabel;
 
 	
 		public String getNombreCiudad() {
@@ -59,21 +60,18 @@ public class Vista extends JFrame {
 		int ancho = 600;
 		int alto = 600; 
 		
-		
+		setTitle("Deutschland Weather");
 		setIconImage(Toolkit.getDefaultToolkit().getImage(sIcon));
 		
+		
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 30, ancho, alto);
+		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
-		
-		JPanel panel = new JPanel();
-		panel.setBounds(0, 10, 584, 51);
-		contentPane.add(panel);
-		panel.setLayout(new BorderLayout(0, 0));
 		
 	
 
@@ -138,6 +136,11 @@ public class Vista extends JFrame {
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
 		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setToolTipText("");
+		lblNewLabel.setBounds(-16, 26, 617, 40);
+		contentPane.add(lblNewLabel);
+		
 		contentPane.add(btBerlin);
 		contentPane.add(btFrank);
 		contentPane.add(btEssen);
@@ -148,21 +151,20 @@ public class Vista extends JFrame {
 		contentPane.add(btDres);
 		contentPane.add(btKass);
 		contentPane.add(btHamb);
+			
 		
-		
-		
-		JLabel lbFondo = new JLabel("fondo");
+		JLabel lbFondo = new JLabel("");
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 0, ancho, 600);
-		
+		lbFondo.setBounds(0, 0, 601, 582);
+	
 		ImageIcon map = new ImageIcon(sMapa);
+		this.repaint();
 		Icon iconFondo = new ImageIcon(map.getImage().getScaledInstance(lbFondo.getWidth(), lbFondo.getHeight(), Image.SCALE_DEFAULT));
 		lbFondo.setIcon(iconFondo);
-		this.repaint();
-
-		contentPane.add(lbFondo);	
+		
+				contentPane.add(lbFondo);	
 		
 		
 	}

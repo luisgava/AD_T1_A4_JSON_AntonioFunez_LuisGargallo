@@ -12,16 +12,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import modelo.Prediccion;
 import vista.Vista;
+import vista.VistaPre;
 
 public class Controlador {
 	
 Vista vista;
+VistaPre vPre;
 Prediccion datos;
 Listen lis = new Listen();
 
-	public Controlador(Vista vista, Prediccion datos) {
+	public Controlador(Vista vista, VistaPre vp, Prediccion datos) {
 	this.vista = vista;
 	this.datos=datos;
+	this.vPre=vp;
 	
 	this.vista.btBerlin.addActionListener(lis);
 	this.vista.btBremen.addActionListener(lis);
@@ -36,7 +39,14 @@ Listen lis = new Listen();
 
 }
 	public void inciarVista() {
+		
+		vista.setResizable(false);
 		vista.setVisible(true);
+		
+		
+		//vPre.setResizable(false);
+		//vPre.setVisible(true);
+		
 	}
 
 	/**

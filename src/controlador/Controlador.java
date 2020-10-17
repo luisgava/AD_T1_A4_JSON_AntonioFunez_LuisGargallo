@@ -115,7 +115,7 @@ Listen lis = new Listen();
 			vista.lblinfoTempMax.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()); 
 			vista.lblinfoTempMin.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()); 
 			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather()); 
-		//	vista.lblIcono.setIcon(icon);(prediccion.getCity().getForecast().getForecastDay().get(0).getWeatherIcon()); 
+		//	vista.lblIcono.setIcon(icon); este depende de weather. Hay que ver, renombrar y usar los iconos de AEMET.
 		}
 	}
 }

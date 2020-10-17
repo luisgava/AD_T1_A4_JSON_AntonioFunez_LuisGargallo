@@ -26,6 +26,13 @@ Listen lis = new Listen();
 	this.vista.btBerlin.addActionListener(lis);
 	this.vista.btBremen.addActionListener(lis);
 	this.vista.btEssen.addActionListener(lis);
+	this.vista.btFrank.addActionListener(lis);
+	this.vista.btFriburg.addActionListener(lis);
+	this.vista.btMunich.addActionListener(lis);
+	this.vista.btNuren.addActionListener(lis);
+	this.vista.btDres.addActionListener(lis);
+	this.vista.btKass.addActionListener(lis);
+	this.vista.btHamb.addActionListener(lis);
 
 }
 	public void inciarVista() {
@@ -86,7 +93,6 @@ Listen lis = new Listen();
 			
 			vista.setNombreCiudad(ae.getActionCommand());
 			fromFileToObject(obtenerCiudadesFichero());
-			System.out.println(vista.getNombreCiudad());
 			
 		}
 	}

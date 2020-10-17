@@ -1,6 +1,6 @@
 <xml>
 
-		Berlín = http://worldweather.wmo.int/es/json/59_es.xml
+		Berlin = http://worldweather.wmo.int/es/json/59_es.xml
 		Bremen = http://worldweather.wmo.int/es/json/1342_es.xml
 		Dresde =http://worldweather.wmo.int/es/json/1343_es.xml
 		Erfurt = http://worldweather.wmo.int/es/json/1344_es.xml
@@ -14,8 +14,8 @@
 		Colonia = http://worldweather.wmo.int/es/json/56_es.xml
 		Leipzig = http://worldweather.wmo.int/es/json/1350_es.xml
 		Magdeburgo = http://worldweather.wmo.int/es/json/1351_es.xml
-		Múnich = http://worldweather.wmo.int/es/json/58_es.xml
-		Núremberg = http://worldweather.wmo.int/es/json/1352_es.xml
+		Munich = http://worldweather.wmo.int/es/json/58_es.xml
+		Nuremberg = http://worldweather.wmo.int/es/json/1352_es.xml
 		Oberstdorf = http://worldweather.wmo.int/es/json/1353_es.xml
 		Regensburg = http://worldweather.wmo.int/es/json/1354_es.xml
 		Rostock = http://worldweather.wmo.int/es/json/1355_es.xml

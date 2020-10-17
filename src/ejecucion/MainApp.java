@@ -13,11 +13,7 @@ public class MainApp {
 		Prediccion datos = null;
 		Controlador control = new Controlador(vista, datos);
 		control.inciarVista();
-		
-		
-		
-		
 
 	}
-
 }
+

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ForecastDay {
-	String day; // fecha de la prediccion
+	String forecastDate; // fecha de la prediccion
 	String weather;
 	String minTemp;
 	String maxTemp;
@@ -12,16 +12,16 @@ public class ForecastDay {
 
 	@Override
 	public String toString() {
-		return "ForecastDay [forecastDate=" + day + ", weather=" + weather + ", minTemp=" + minTemp
+		return "ForecastDay [forecastDate=" + forecastDate + ", weather=" + weather + ", minTemp=" + minTemp
 				+ ", maxTemp=" + maxTemp+"]";
 	}
 
-	public String getDay() {
-		return day;
+	public String getforecastDate() {
+		return forecastDate;
 	}
 
-	public void setDay(String forecastDate) {
-		this.day = forecastDate;
+	public void setforecastDate(String forecastDate) {
+		this.forecastDate = forecastDate;
 	}
 
 	public String getWeather() {

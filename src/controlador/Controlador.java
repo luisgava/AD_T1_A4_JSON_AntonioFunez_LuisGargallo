@@ -108,17 +108,17 @@ Listen lis = new Listen();
 		}
 
 		private void setDia() {
-			vista.textAreaResultados.append(prediccion.getCity().getCityName());
+			
+			
+			vista.textAreaResultados.append(prediccion.getCity().getCityName()+"\t");
+			vista.textAreaResultados.append(prediccion.getCity().getForecast().getForecastDay().get(0).getforecastDate()+"\t");
+			vista.textAreaResultados.append(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()+"\t"); 
+			vista.textAreaResultados.append(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()+"\t"); 
+			vista.textAreaResultados.append(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather()+"\t");
 			for (int i = 0; i < prediccion.getCity().getForecast().getForecastDay().size(); i++) {
 				
 			}
 			
-			vista.lblinfoDia_0.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getforecastDate()); //Día 1 por el get(0), hay que hacer esto automático para no repetir cuatro veces el setDia()
-			vista.lblinfoTempMax.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()); 
-			vista.lblinfoTempMin.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()); 
-			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather());
-			
-		//	vista.lblIcono.setIcon(icon); este depende de weather. Hay que ver, renombrar y usar los iconos de AEMET.
 			
 			
 		}

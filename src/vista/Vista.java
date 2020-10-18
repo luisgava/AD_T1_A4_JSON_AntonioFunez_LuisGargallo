@@ -47,11 +47,6 @@ public class Vista extends JFrame {
 	
 	private JPanel panelResultados;
 	public JLabel lblIcono;
-	private JLabel lblTiempo;
-	private JLabel lblTempMin;
-	private JLabel lblTempMax;
-	private JLabel lblDía;	
-	private JLabel lblNombreCiudad; 
 	
 	public JTextArea textAreaResultados;
 	public JLabel lbIconoTiempo;
@@ -182,32 +177,14 @@ public class Vista extends JFrame {
 				contentPane.add(panelResultados);
 				panelResultados.setLayout(null);
 				
-				lblNombreCiudad = new JLabel("Ciudad");
-				lblNombreCiudad.setBounds(0, 0, 99, 24);
-				panelResultados.add(lblNombreCiudad);
-				
-				lblDía = new JLabel("D\u00EDa");
-				lblDía.setBounds(99, 0, 99, 24);
-				panelResultados.add(lblDía);
-				
-				lblTempMax = new JLabel("Temp. m\u00E1xima");
-				lblTempMax.setBounds(198, 0, 99, 24);
-				panelResultados.add(lblTempMax);
-				
-				lblTempMin = new JLabel("Temp. M\u00EDnima");
-				lblTempMin.setBounds(297, 0, 99, 24);
-				panelResultados.add(lblTempMin);
-				
-				lblTiempo = new JLabel("Tiempo");
-				lblTiempo.setBounds(396, 0, 99, 24);
-				panelResultados.add(lblTiempo);
-				
 				lblIcono = new JLabel("     ");
 				lblIcono.setBounds(495, 0, 99, 24);
 				panelResultados.add(lblIcono);
 				
 				textAreaResultados = new JTextArea();
-				textAreaResultados.setBounds(0, 24, 495, 110);
+				
+				textAreaResultados.append("Ciudad" + "\t" + "Fecha" + "\t" + "Temp. Máx."+"\t"+"Temp. Min."+"\t"+"Tiempo"+"\r\n");
+				textAreaResultados.setBounds(10, 0, 485, 134);
 				panelResultados.add(textAreaResultados);
 				
 				JLabel label = new JLabel("New label");

@@ -30,7 +30,7 @@ public class Vista extends JFrame {
 	// String para el nombre de la ciudad seleccionada.
 	private String nombreCiudad;
 	// Bortones de las ciudades.
-	public JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
+	private JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
 	// Lista para guardar los botones.
 	private List<JButton> listaBotones = new ArrayList<JButton>();
 	// Panel de resultados.
@@ -38,7 +38,12 @@ public class Vista extends JFrame {
 	// TextArea para mostrar los resultados.
 	private JTextArea textAreaResultados;
 	// Label para el icono del tiempo
-	public JLabel lblIcono, lb1, lb2, lb3;
+	private JLabel lb0, lb1, lb2, lb3;
+	private List<JLabel> listaIconos = new ArrayList<JLabel>();
+	
+	private JComboBox cmbBox;
+	private JTextField tF1, tF2;
+	private JButton btnAddCity;
 
 
 	
@@ -67,6 +72,10 @@ public class Vista extends JFrame {
 	public List<JButton> getListaBotones() {
 		return listaBotones;
 	}
+	public List<JLabel> getListaIconos() {
+		return listaIconos;
+	}
+
 	/**
 	 * Método que devuelve el TextArea de resultados.
 	 * 
@@ -98,72 +107,78 @@ public class Vista extends JFrame {
 		btBerlin = new JButton("Berlin");
 		btBerlin.setVisible(true);
 		btBerlin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btBerlin.setBounds(379, 206, 67, 23);
+		btBerlin.setBounds(380, 247, 67, 23);
 		btBerlin.setBorder(null);
 		btBerlin.setContentAreaFilled(false);
 
 		btBremen = new JButton("Bremen");
 		btBremen.setVisible(true);
 		btBremen.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btBremen.setBounds(210, 189, 67, 23);
+		btBremen.setBounds(211, 230, 67, 23);
 		btBremen.setBorder(null);
 		btBremen.setContentAreaFilled(false);
 
 		btEssen = new JButton("Essen");
 		btEssen.setVisible(true);
 		btEssen.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btEssen.setBounds(148, 266, 50, 23);
+		btEssen.setBounds(149, 307, 50, 23);
 		btEssen.setBorder(null);
 		btEssen.setContentAreaFilled(false);
 
 		btFrank = new JButton("Frankfurt");
 		btFrank.setVisible(true);
 		btFrank.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btFrank.setBounds(181, 356, 67, 23);
+		btFrank.setBounds(182, 397, 67, 23);
 		btFrank.setBorder(null);
 		btFrank.setContentAreaFilled(false);
 
 		btFriburg = new JButton("Friburgo");
 		btFriburg.setVisible(true);
 		btFriburg.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btFriburg.setBounds(181, 454, 67, 23);
+		btFriburg.setBounds(182, 495, 67, 23);
 		btFriburg.setBorder(null);
 		btFriburg.setContentAreaFilled(false);
 
 		btMunich = new JButton("Munich");
 		btMunich.setVisible(true);
 		btMunich.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btMunich.setBounds(292, 468, 67, 23);
+		btMunich.setBounds(293, 509, 67, 23);
 		btMunich.setBorder(null);
 		btMunich.setContentAreaFilled(false);
 
 		btNuren = new JButton("Nuremberg");
 		btNuren.setVisible(true);
 		btNuren.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btNuren.setBounds(279, 389, 67, 23);
+		btNuren.setBounds(280, 430, 67, 23);
 		btNuren.setBorder(null);
 		btNuren.setContentAreaFilled(false);
 
 		btDres = new JButton("Dresde");
 		btDres.setVisible(true);
 		btDres.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btDres.setBounds(379, 289, 67, 23);
+		btDres.setBounds(380, 330, 67, 23);
 		btDres.setBorder(null);
 		btDres.setContentAreaFilled(false);
 
 		btKass = new JButton("Kassel");
 		btKass.setVisible(true);
 		btKass.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btKass.setBounds(250, 277, 67, 23);
+		btKass.setBounds(251, 318, 67, 23);
 		btKass.setBorder(null);
 		btKass.setContentAreaFilled(false);
 
 		btHamb = new JButton("Hamburgo");
 		btHamb.setVisible(true);
 		btHamb.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btHamb.setBounds(267, 159, 67, 23);
+		btHamb.setBounds(268, 200, 67, 23);
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
+		
+		cmbBox = new JComboBox();		
+		cmbBox.setBounds(10, 107, 118, 20);
+		cmbBox.addItem("DESPLEGABLE");
+
+		contentPane.add(cmbBox);
 
 		contentPane.add(btBerlin);
 		contentPane.add(btFrank);
@@ -191,7 +206,7 @@ public class Vista extends JFrame {
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 95, 594, 536);
+		lbFondo.setBounds(0, 141, 594, 490);
 
 		ImageIcon map = new ImageIcon(sMapa);
 		this.repaint();
@@ -207,15 +222,15 @@ public class Vista extends JFrame {
 		contentPane.add(panelResultados);
 		panelResultados.setLayout(null);
 
-		lblIcono = new JLabel("     ");
-		lblIcono.setBounds(546, 0, 38, 30);
-		panelResultados.add(lblIcono);
-
 		textAreaResultados = new JTextArea();
 		textAreaResultados.append(
 				"Ciudad" + "\t" + "Fecha" + "\t" + "Temp. Máx." + "\t" + "Temp. Min." + "\t" + "Tiempo" + "\r\n");
 		textAreaResultados.setBounds(10, 0, 485, 77);
 		panelResultados.add(textAreaResultados);
+		
+		lb0 = new JLabel("     ");
+		lb0.setBounds(546, 0, 38, 30);
+		panelResultados.add(lb0);
 		
 		lb1 = new JLabel("     ");
 		lb1.setBounds(495, 27, 38, 25);
@@ -228,6 +243,28 @@ public class Vista extends JFrame {
 		lb3 = new JLabel("     ");
 		lb3.setBounds(495, 63, 38, 32);
 		panelResultados.add(lb3);
+		
+		listaIconos.add(lb0);
+		listaIconos.add(lb1);
+		listaIconos.add(lb2);
+		listaIconos.add(lb3);
+		
+		tF1 = new JTextField("Ciudad");
+		tF1.setBounds(154, 107, 124, 20);
+		contentPane.add(tF1);
+		tF1.setColumns(10);
+		
+		
+		tF2 = new JTextField("URL");
+		tF2.setColumns(10);
+		tF2.setBounds(308, 107, 124, 20);
+		contentPane.add(tF2);
+		
+		btnAddCity = new JButton("addCity");
+
+		btnAddCity.setBounds(454, 106, 89, 23);
+		btnAddCity.addActionListener(cmbBox);
+		contentPane.add(btnAddCity);
 	
 	}	
 }

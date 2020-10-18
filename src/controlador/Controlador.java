@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -101,16 +102,21 @@ public class Controlador {
 		 * ejecuta el método que muestra los resultados.
 		 */
 		public void actionPerformed(ActionEvent ae) {
+			
 			// Limpiamos resultados anteriores.
 			vista.getTextAreaResultados().setText(null);
+			
 			// Establecemos el nombre de la ciudad con el nombre del botón.
 			vista.setNombreCiudad(ae.getActionCommand());
+			
+			
 			// Transformamos el JSON en clases Java.
 			fromUrlToObject(obtenerCiudadesFichero());
+			
 			// Método que muestra la información.
 			setDia();
 		}
-
+	
 		/**
 		 * Método que recoge la información y la muestra en el panel de resultados.
 		 */
@@ -120,9 +126,10 @@ public class Controlador {
 					"Ciudad" + "\t" + "Fecha" + "\t" + "Temp. Máx." + "\t" + "Temp. Min." + "\t" + "Tiempo" + "\r\n");
 			// Mostramos el nombre de la ciudad.
 			vista.getTextAreaResultados().append(prediccion.getCity().getCityName() + "\t");
-
+			
 			// Recorremos y mostramos los datos de los ForecastDay (días de predicción).
 			for (int i = 0; i < prediccion.getCity().getForecast().getForecastDay().size(); i++) {
+				
 				// Fecha.
 				vista.getTextAreaResultados()
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getforecastDate() + "\t");
@@ -134,8 +141,45 @@ public class Controlador {
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getMinTemp() + "\t");
 				// Tiempo
 				vista.getTextAreaResultados()
-						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getWeather() + "\r\n\t");
+						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getWeather()  + "\r\n\t");				
 			}
+			
+			vista.lblIcono.setIcon(new ImageIcon(darIcono(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather())));
+			vista.lb1.setIcon(new ImageIcon(darIcono(prediccion.getCity().getForecast().getForecastDay().get(1).getWeather())));
+			vista.lb2.setIcon(new ImageIcon(darIcono(prediccion.getCity().getForecast().getForecastDay().get(2).getWeather())));
+			vista.lb3.setIcon(new ImageIcon(darIcono(prediccion.getCity().getForecast().getForecastDay().get(3).getWeather())));
+			
+		}
+		
+		public String darIcono(String tiempo) {
+			
+			String rutaIcono=null;
+			
+			if(tiempo.equalsIgnoreCase("Nuboso") || tiempo.equalsIgnoreCase("Parcialmente Nuboso") || tiempo.equalsIgnoreCase("Poco nuboso")
+					|| tiempo.equalsIgnoreCase("Intervalos nubosos")){ 	//NUBOSO
+				
+				rutaIcono = "src\\resources\\IconAemet\\14.png";
+			
+			}else if(tiempo.contains("Despejado") || tiempo.equalsIgnoreCase("Despejado")) { 					//DESPEJADO
+				rutaIcono = "src\\resources\\IconAemet\\1.png";
+				
+			}else if(tiempo.equalsIgnoreCase("Muy nuboso") || tiempo.equalsIgnoreCase("Cubierto")) { // MUY NUBOSO
+				rutaIcono = "src\\resources\\IconAemet\\16.png";
+				
+			}else if(tiempo.contains("Lluvia débil")|| tiempo.equalsIgnoreCase("Lluvia")|| tiempo.equalsIgnoreCase("Lluvia débil")) {						// LLUVIA
+				rutaIcono = "src\\resources\\IconAemet\\26.png";
+			
+			}else if(tiempo.contains("nieve")|| tiempo.equalsIgnoreCase("Nieve")) {						// NIEVE
+				rutaIcono = "src\\resources\\IconAemet\\36.png";
+			
+			
+			}else if(tiempo.contains("tormenta")|| tiempo.equalsIgnoreCase("Tormenta")) {						// TORMENTA
+				rutaIcono = "src\\resources\\IconAemet\\54.png";
+		
+			}else {														// POR DEFECTO
+				rutaIcono = "src\\resources\\IconAemet\\1.png";
+			}
+			return rutaIcono;
 		}
 	}
 }

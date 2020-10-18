@@ -41,12 +41,37 @@ public class Vista extends JFrame {
 	private JLabel lb0, lb1, lb2, lb3;
 	private List<JLabel> listaIconos = new ArrayList<JLabel>();
 	
-	private JComboBox cmbBox;
-	private JTextField tF1, tF2;
+	private JComboBox<String> cmbBox;
+	private JTextField nuevaciudad, nuevaUrl;
 	private JButton btnAddCity;
-
-
 	
+	/**
+	 * Devuelve la nueva ciudad.
+	 * 
+	 * @return
+	 */
+	public JTextField getNuevaciudad() {
+		return nuevaciudad;
+	}
+
+	/**
+	 * Devuelve la nueva url
+	 * 
+	 * @return
+	 */
+	public JTextField getNuevaUrl() {
+		return nuevaUrl;
+	}
+
+	/**
+	 * Método que devuelve el botón AddCity.
+	 * 
+	 * @return
+	 */
+	public JButton getBtnAddCity() {
+		return btnAddCity;
+	}
+
 	/**
 	 * Método que devuelve el nombre de la ciudad seleccionada.
 	 * 
@@ -72,6 +97,11 @@ public class Vista extends JFrame {
 	public List<JButton> getListaBotones() {
 		return listaBotones;
 	}
+	/**
+	 * Método que devuelve la lista de iconos.
+	 * 
+	 * @return
+	 */
 	public List<JLabel> getListaIconos() {
 		return listaIconos;
 	}
@@ -83,6 +113,15 @@ public class Vista extends JFrame {
 	 */
 	public JTextArea getTextAreaResultados() {
 		return textAreaResultados;
+	}
+
+	/**
+	 * Método que devuelve el combobox.
+	 * 
+	 * @return
+	 */
+	public JComboBox getCmbBox() {
+		return cmbBox;
 	}
 
 	/**
@@ -174,10 +213,9 @@ public class Vista extends JFrame {
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
 		
-		cmbBox = new JComboBox();		
+		cmbBox = new JComboBox<String>();		
 		cmbBox.setBounds(10, 107, 118, 20);
-		cmbBox.addItem("DESPLEGABLE");
-
+		cmbBox.addItem("Otras ciudades");
 		contentPane.add(cmbBox);
 
 		contentPane.add(btBerlin);
@@ -249,16 +287,16 @@ public class Vista extends JFrame {
 		listaIconos.add(lb2);
 		listaIconos.add(lb3);
 		
-		tF1 = new JTextField("Ciudad");
-		tF1.setBounds(154, 107, 124, 20);
-		contentPane.add(tF1);
-		tF1.setColumns(10);
+		nuevaciudad = new JTextField("Ciudad");
+		nuevaciudad.setBounds(154, 107, 124, 20);
+		contentPane.add(nuevaciudad);
+		nuevaciudad.setColumns(10);
 		
 		
-		tF2 = new JTextField("URL");
-		tF2.setColumns(10);
-		tF2.setBounds(308, 107, 124, 20);
-		contentPane.add(tF2);
+		nuevaUrl = new JTextField("URL");
+		nuevaUrl.setColumns(10);
+		nuevaUrl.setBounds(308, 107, 124, 20);
+		contentPane.add(nuevaUrl);
 		
 		btnAddCity = new JButton("addCity");
 

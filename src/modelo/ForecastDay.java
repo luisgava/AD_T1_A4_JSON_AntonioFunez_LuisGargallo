@@ -49,10 +49,3 @@ public class ForecastDay {
 	}
 
 }
-
-/**
- * De cada día se nos debe mostrar el día del que se trata, la temperatura
- * máxima y mínima en Celsius, el estado del cielo (Soleado, Tormentas, etc…).
- * Usa imágenes en la predicción como dibujar un sol si está soleado, nubes si
- * nublado y lluvia si existe probabilidad alta de lluvia.
- */

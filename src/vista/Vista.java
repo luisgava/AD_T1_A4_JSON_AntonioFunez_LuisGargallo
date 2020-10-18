@@ -51,7 +51,7 @@ public class Vista extends JFrame {
 	private JLabel lblNombreCiudad; 
 	
 	public JLabel lblinfoNombreciudad;
-	public JLabel lblinfoDia;
+	public JLabel lblinfoDia_0;
 	public JLabel lblinfoTempMax;
 	public JLabel lblinfoTempMin;
 	public JLabel lblinfoTiempo;
@@ -178,7 +178,7 @@ public class Vista extends JFrame {
 				
 				panelResultados = new JPanel();
 				panelResultados.setBackground(Color.WHITE);
-				panelResultados.setBounds(0, 0, 594, 106);
+				panelResultados.setBounds(0, 0, 594, 134);
 				contentPane.add(panelResultados);
 				panelResultados.setLayout(null);
 				
@@ -211,9 +211,9 @@ public class Vista extends JFrame {
 				lblinfoNombreciudad.setBounds(0, 24, 99, 82);
 				panelResultados.add(lblinfoNombreciudad);
 				
-				lblinfoDia = new JLabel("");
-				lblinfoDia.setBounds(99, 24, 99, 24);
-				panelResultados.add(lblinfoDia);
+				lblinfoDia_0 = new JLabel("");
+				lblinfoDia_0.setBounds(99, 24, 99, 24);
+				panelResultados.add(lblinfoDia_0);
 				
 				lblinfoTempMax = new JLabel("");
 				lblinfoTempMax.setBounds(198, 24, 99, 24);
@@ -226,6 +226,18 @@ public class Vista extends JFrame {
 				lblinfoTiempo = new JLabel("");
 				lblinfoTiempo.setBounds(396, 24, 99, 24);
 				panelResultados.add(lblinfoTiempo);
+				
+				JLabel lblinfoDia_1 = new JLabel("");
+				lblinfoDia_1.setBounds(99, 47, 99, 24);
+				panelResultados.add(lblinfoDia_1);
+				
+				JLabel lblinfoDia_2 = new JLabel("");
+				lblinfoDia_2.setBounds(99, 82, 99, 24);
+				panelResultados.add(lblinfoDia_2);
+				
+				JLabel lblinfoDia_3 = new JLabel("");
+				lblinfoDia_3.setBounds(99, 110, 99, 24);
+				panelResultados.add(lblinfoDia_3);
 		
 	}
 }

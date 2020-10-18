@@ -81,7 +81,7 @@ public class Vista extends JFrame {
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(300, 30, ancho, alto);
+		setBounds(300, 30, 600, 625);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -92,62 +92,62 @@ public class Vista extends JFrame {
 
 		btBerlin = new JButton("Berlin");
 		btBerlin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btBerlin.setBounds(379, 183, 67, 23);
+		btBerlin.setBounds(380, 212, 67, 23);
 		btBerlin.setBorder(null);
 		btBerlin.setContentAreaFilled(false);
 		
 		
 		btBremen = new JButton("Bremen");
 		btBremen.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btBremen.setBounds(210, 166, 67, 23);
+		btBremen.setBounds(211, 195, 67, 23);
 		btBremen.setBorder(null);
 		btBremen.setContentAreaFilled(false);
 		
 		btEssen = new JButton("Essen");
 		btEssen.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btEssen.setBounds(148, 243, 50, 23);
+		btEssen.setBounds(149, 272, 50, 23);
 		btEssen.setBorder(null);
 		btEssen.setContentAreaFilled(false);
 		
 		btFrank = new JButton("Frankfurt");
 		btFrank.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btFrank.setBounds(181, 333, 67, 23);
+		btFrank.setBounds(182, 362, 67, 23);
 		btFrank.setBorder(null);
 		btFrank.setContentAreaFilled(false);
 		
 		btFriburg = new JButton("Friburgo");
 		btFriburg.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btFriburg.setBounds(181, 431, 67, 23);
+		btFriburg.setBounds(182, 460, 67, 23);
 		btFriburg.setBorder(null);
 		btFriburg.setContentAreaFilled(false);
 		
 		btMunich = new JButton("Munich");
 		btMunich.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btMunich.setBounds(292, 445, 67, 23);
+		btMunich.setBounds(293, 474, 67, 23);
 		btMunich.setBorder(null);
 		btMunich.setContentAreaFilled(false);
 		
 		btNuren = new JButton("Nuremberg");
 		btNuren.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btNuren.setBounds(279, 366, 67, 23);
+		btNuren.setBounds(280, 395, 67, 23);
 		btNuren.setBorder(null);
 		btNuren.setContentAreaFilled(false);
 		
 		btDres = new JButton("Dresde");
 		btDres.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btDres.setBounds(379, 266, 67, 23);
+		btDres.setBounds(380, 295, 67, 23);
 		btDres.setBorder(null);
 		btDres.setContentAreaFilled(false);
 		
 		btKass = new JButton("Kassel");
 		btKass.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btKass.setBounds(250, 254, 67, 23);
+		btKass.setBounds(251, 283, 67, 23);
 		btKass.setBorder(null);
 		btKass.setContentAreaFilled(false);
 		
 		btHamb = new JButton("Hamburgo");
 		btHamb.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btHamb.setBounds(267, 136, 67, 23);
+		btHamb.setBounds(268, 165, 67, 23);
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
 		
@@ -167,7 +167,7 @@ public class Vista extends JFrame {
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 71, 594, 490);
+		lbFondo.setBounds(0, 106, 594, 490);
 	
 		ImageIcon map = new ImageIcon(sMapa);
 		this.repaint();
@@ -178,41 +178,53 @@ public class Vista extends JFrame {
 				
 				panelResultados = new JPanel();
 				panelResultados.setBackground(Color.WHITE);
-				panelResultados.setBounds(0, 11, 594, 49);
+				panelResultados.setBounds(0, 0, 594, 106);
 				contentPane.add(panelResultados);
-				panelResultados.setLayout(new GridLayout(2, 8, 0, 0));
+				panelResultados.setLayout(null);
 				
 				lblNombreCiudad = new JLabel("Ciudad");
+				lblNombreCiudad.setBounds(0, 0, 99, 24);
 				panelResultados.add(lblNombreCiudad);
 				
 				lblDía = new JLabel("D\u00EDa");
+				lblDía.setBounds(99, 0, 99, 24);
 				panelResultados.add(lblDía);
 				
 				lblTempMax = new JLabel("Temp. m\u00E1xima");
+				lblTempMax.setBounds(198, 0, 99, 24);
 				panelResultados.add(lblTempMax);
 				
 				lblTempMin = new JLabel("Temp. M\u00EDnima");
+				lblTempMin.setBounds(297, 0, 99, 24);
 				panelResultados.add(lblTempMin);
 				
 				lblTiempo = new JLabel("Tiempo");
+				lblTiempo.setBounds(396, 0, 99, 24);
 				panelResultados.add(lblTiempo);
 				
 				lblIcono = new JLabel("     ");
+				lblIcono.setBounds(495, 0, 99, 24);
 				panelResultados.add(lblIcono);
 				
 				lblinfoNombreciudad = new JLabel("");
+				lblinfoNombreciudad.setFont(new Font("Tahoma", Font.BOLD, 13));
+				lblinfoNombreciudad.setBounds(0, 24, 99, 82);
 				panelResultados.add(lblinfoNombreciudad);
 				
 				lblinfoDia = new JLabel("");
+				lblinfoDia.setBounds(99, 24, 99, 24);
 				panelResultados.add(lblinfoDia);
 				
 				lblinfoTempMax = new JLabel("");
+				lblinfoTempMax.setBounds(198, 24, 99, 24);
 				panelResultados.add(lblinfoTempMax);
 				
 				lblinfoTempMin = new JLabel("");
+				lblinfoTempMin.setBounds(297, 24, 99, 24);
 				panelResultados.add(lblinfoTempMin);
 				
 				lblinfoTiempo = new JLabel("");
+				lblinfoTiempo.setBounds(396, 24, 99, 24);
 				panelResultados.add(lblinfoTiempo);
 		
 	}

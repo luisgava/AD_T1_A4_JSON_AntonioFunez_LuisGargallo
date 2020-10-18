@@ -1,61 +1,72 @@
 package vista;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JToggleButton;
-import javax.swing.JRadioButton;
 import java.awt.Color;
 import javax.swing.SwingConstants;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.LineBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
 import java.awt.Font;
-import java.awt.GridLayout;
 import javax.swing.JTextArea;
 
 public class Vista extends JFrame {
-
+	// Panel principal.
 	private JPanel contentPane;
-
-	String nombreCiudad;
-	public JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
-	public List<JButton> listaBotones = new ArrayList<JButton>();
-
+	// String para el nombre de la ciudad seleccionada.
+	private String nombreCiudad;
+	// Bortones de las ciudades.
+	private JButton btBerlin, btFrank, btBremen, btEssen, btFriburg, btMunich, btNuren, btDres, btKass, btHamb;
+	// Lista para guardar los botones.
+	private List<JButton> listaBotones = new ArrayList<JButton>();
+	// Panel de resultados.
 	private JPanel panelResultados;
-	public JLabel lblIcono;
-
-	public JTextArea textAreaResultados;
-	public JLabel lbIconoTiempo;
-
+	// TextArea para mostrar los resultados.
+	private JTextArea textAreaResultados;
+	// Label para el icono del tiempo
+	private JLabel lblIcono;
+	
+	/**
+	 * Método que devuelve el nombre de la ciudad seleccionada.
+	 * 
+	 * @return
+	 */
 	public String getNombreCiudad() {
 		return nombreCiudad;
 	}
 
+	/**
+	 * Método que guarda el nombre de la ciudad.
+	 * 
+	 * @param nombreCiudad
+	 */
 	public void setNombreCiudad(String nombreCiudad) {
 		this.nombreCiudad = nombreCiudad;
+	}
+	/**
+	 * Método que devuelve la lista de botones.
+	 * 
+	 * @return
+	 */
+	public List<JButton> getListaBotones() {
+		return listaBotones;
+	}
+	/**
+	 * Método que devuelve el TextArea de resultados.
+	 * 
+	 * @return
+	 */
+	public JTextArea getTextAreaResultados() {
+		return textAreaResultados;
 	}
 
 	/**

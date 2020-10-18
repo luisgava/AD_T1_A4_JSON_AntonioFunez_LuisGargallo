@@ -34,7 +34,7 @@ public class Controlador {
 		this.vista = vista;
 		this.prediccion = datos;
 		// Añadimos listeners para los botones de la vista.
-		for (JButton boton : this.vista.listaBotones) {
+		for (JButton boton : this.vista.getListaBotones()) {
 			boton.addActionListener(lis);
 		}
 	}
@@ -102,7 +102,7 @@ public class Controlador {
 		 */
 		public void actionPerformed(ActionEvent ae) {
 			// Limpiamos resultados anteriores.
-			vista.textAreaResultados.setText(null);
+			vista.getTextAreaResultados().setText(null);
 			// Establecemos el nombre de la ciudad con el nombre del botón.
 			vista.setNombreCiudad(ae.getActionCommand());
 			// Transformamos el JSON en clases Java.
@@ -116,24 +116,24 @@ public class Controlador {
 		 */
 		private void setDia() {
 			// Volvemos a poner las etiquetas que el clear del listener borra.
-			vista.textAreaResultados.append(
+			vista.getTextAreaResultados().append(
 					"Ciudad" + "\t" + "Fecha" + "\t" + "Temp. Máx." + "\t" + "Temp. Min." + "\t" + "Tiempo" + "\r\n");
 			// Mostramos el nombre de la ciudad.
-			vista.textAreaResultados.append(prediccion.getCity().getCityName() + "\t");
+			vista.getTextAreaResultados().append(prediccion.getCity().getCityName() + "\t");
 
 			// Recorremos y mostramos los datos de los ForecastDay (días de predicción).
 			for (int i = 0; i < prediccion.getCity().getForecast().getForecastDay().size(); i++) {
 				// Fecha.
-				vista.textAreaResultados
+				vista.getTextAreaResultados()
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getforecastDate() + "\t");
 				// Temperatura máxima.
-				vista.textAreaResultados
+				vista.getTextAreaResultados()
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getMaxTemp() + "\t");
 				// Temperatura mínima.
-				vista.textAreaResultados
+				vista.getTextAreaResultados()
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getMinTemp() + "\t");
 				// Tiempo
-				vista.textAreaResultados
+				vista.getTextAreaResultados()
 						.append(prediccion.getCity().getForecast().getForecastDay().get(i).getWeather() + "\r\n\t");
 			}
 		}

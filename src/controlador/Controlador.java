@@ -44,11 +44,7 @@ Listen lis = new Listen();
 		
 		vista.setResizable(false);
 		vista.setVisible(true);
-		
-		
-		//vPre.setResizable(false);
-		//vPre.setVisible(true);
-		
+			
 	}
 
 	/**

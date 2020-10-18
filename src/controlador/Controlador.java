@@ -109,7 +109,7 @@ Listen lis = new Listen();
 		private void setDia() {
 			
 			vista.lblinfoNombreciudad.setText(prediccion.getCity().getCityName());
-			vista.lblinfoDia.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getforecastDate()); //Día 1 por el get(0), hay que hacer esto automático para no repetir cuatro veces el setDia()
+			vista.lblinfoDia_0.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getforecastDate()); //Día 1 por el get(0), hay que hacer esto automático para no repetir cuatro veces el setDia()
 			vista.lblinfoTempMax.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMaxTemp()); 
 			vista.lblinfoTempMin.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getMinTemp()); 
 			vista.lblinfoTiempo.setText(prediccion.getCity().getForecast().getForecastDay().get(0).getWeather());

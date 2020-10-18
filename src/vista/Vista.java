@@ -32,6 +32,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.UIManager;
 import java.awt.Font;
 import java.awt.GridLayout;
+import javax.swing.JTextArea;
 
 public class Vista extends JFrame {
 
@@ -52,19 +53,10 @@ public class Vista extends JFrame {
 	private JLabel lblDía;	
 	private JLabel lblNombreCiudad; 
 	
-	public JLabel lblinfoNombreciudad;
-//	public JLabel lblinfoDia_0;
-	public JLabel lblinfoTempMax;
-	public JLabel lblinfoTempMin;
-	public JLabel lblinfoTiempo;
+	public JTextArea textAreaResultados;
 	public JLabel lbIconoTiempo;
 	
-	public List<JLabel> listaLblDias = ;
 	
-	public JLabel lblinfoDia_0;
-public JLabel lblinfoDia_1; 
-public JLabel lblinfoDia_2; 
-public JLabel lblinfoDia_3; 
 	
 		public String getNombreCiudad() {
 		return nombreCiudad;
@@ -214,42 +206,13 @@ public JLabel lblinfoDia_3;
 				lblIcono.setBounds(495, 0, 99, 24);
 				panelResultados.add(lblIcono);
 				
-				lblinfoNombreciudad = new JLabel("");
-				lblinfoNombreciudad.setFont(new Font("Tahoma", Font.BOLD, 13));
-				lblinfoNombreciudad.setBounds(0, 24, 99, 82);
-				panelResultados.add(lblinfoNombreciudad);
+				textAreaResultados = new JTextArea();
+				textAreaResultados.setBounds(0, 24, 495, 110);
+				panelResultados.add(textAreaResultados);
 				
-				lblinfoDia_0 = new JLabel("");
-				lblinfoDia_0.setBounds(99, 24, 99, 24);
-				panelResultados.add(lblinfoDia_0);
-				listaLblDias.add(lblinfoDia_0);
-				
-				lblinfoTempMax = new JLabel("");
-				lblinfoTempMax.setBounds(198, 24, 99, 24);
-				panelResultados.add(lblinfoTempMax);
-				
-				lblinfoTempMin = new JLabel("");
-				lblinfoTempMin.setBounds(297, 24, 99, 24);
-				panelResultados.add(lblinfoTempMin);
-				
-				lblinfoTiempo = new JLabel("");
-				lblinfoTiempo.setBounds(396, 24, 99, 24);
-				panelResultados.add(lblinfoTiempo);
-				
-				lblinfoDia_1 = new JLabel("");
-				lblinfoDia_1.setBounds(99, 47, 99, 24);
-				panelResultados.add(lblinfoDia_1);
-				listaLblDias.add(lblinfoDia_1);
-				
-				lblinfoDia_2 = new JLabel("");
-				lblinfoDia_2.setBounds(99, 82, 99, 24);
-				panelResultados.add(lblinfoDia_2);
-				listaLblDias.add(lblinfoDia_2);
-				
-				lblinfoDia_3 = new JLabel("");
-				lblinfoDia_3.setBounds(99, 110, 99, 24);
-				panelResultados.add(lblinfoDia_3);
-				listaLblDias.add(lblinfoDia_3);
+				JLabel label = new JLabel("New label");
+				label.setBounds(505, 29, 0, 0);
+				panelResultados.add(label);
 		
 	}
 }

@@ -70,7 +70,7 @@ public class Controlador {
 		URL url = null;
 		try {
 			// Cargamos el fichero de propiedades en configuracion.
-			configuracion.load(new FileReader("src/resources/config.properties.xml"));
+			configuracion.load(new FileReader("src/resources/config.properties.txt"));
 			// Leemos el fichero de propiedades.
 			String direccionCiudad = configuracion.getProperty(vista.getNombreCiudad());
 			// Pasamos el String a URL.
@@ -218,13 +218,11 @@ public class Controlador {
 		private void ampliarProperties() throws IOException {
 			BufferedWriter bw = null;
 			FileWriter fw = null;
-
 			try {
-				File file = new File("src/resources/config.properties.xml");
+				File file = new File("src/resources/config.properties.txt");
 				fw = new FileWriter(file.getAbsoluteFile(), true);
 				bw = new BufferedWriter(fw);
-				bw.write("<xml>" + vista.getNuevaciudad().getText() + " = " + vista.getNuevaUrl().getText() + "<\\xml>");
-
+				bw.write("\t\t" + vista.getNuevaciudad().getText() + " = " + vista.getNuevaUrl().getText() + "\r\n");
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {

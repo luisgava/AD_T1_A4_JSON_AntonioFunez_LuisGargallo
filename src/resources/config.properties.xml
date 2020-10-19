@@ -1,5 +1,3 @@
-<xml>
-
 		Berlin = http://worldweather.wmo.int/es/json/59_es.xml
 		Bremen = http://worldweather.wmo.int/es/json/1342_es.xml
 		Dresde =http://worldweather.wmo.int/es/json/1343_es.xml
@@ -22,5 +20,4 @@
 		Saarbruecken = http://worldweather.wmo.int/es/json/1356_es.xml
 		Stuttgart = http://worldweather.wmo.int/es/json/1357_es.xml
 		Trier = http://worldweather.wmo.int/es/json/1358_es.xml
-
-</xml>
+CiudadReal =  http://worldweather.wmo.int/es/json/1764_es.xml

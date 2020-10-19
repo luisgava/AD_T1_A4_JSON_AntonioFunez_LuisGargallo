@@ -28,7 +28,6 @@ public class Controlador {
 	Vista vista;
 	Prediccion prediccion;
 	Listen lis = new Listen();
-	Listener listenerAddCity = new Listener();
 
 	/**
 	 * Constructor del controlador.
@@ -39,14 +38,6 @@ public class Controlador {
 	public Controlador(Vista vista, Prediccion datos) {
 		this.vista = vista;
 		this.prediccion = datos;
-		// Añadimos listeners para los botones de la vista.
-		for (JButton boton : this.vista.getListaBotones()) {
-			boton.addActionListener(lis);
-		}
-		// Añadimos listener al botón addCity.
-		this.vista.getBtnAddCity().addActionListener(listenerAddCity);
-		// Añadimos listener al combox (el mismo que a los botones de las ciudades).
-		this.vista.getCmbBox().addActionListener(lis);
 	}
 
 	/**
@@ -54,7 +45,11 @@ public class Controlador {
 	 */
 	public void inciarVista() {
 		vista.setResizable(false);
-		vista.setVisible(true);
+		vista.setVisible(true);	
+		// Añadimos listeners para los botones de la vista.	
+		for (JButton boton : this.vista.getListaBotones()) {
+			boton.addActionListener(lis);
+		}
 	}
 
 	/**
@@ -192,50 +187,6 @@ public class Controlador {
 				rutaIcono = "src\\resources\\IconAemet\\11.png";
 			}
 			return rutaIcono;
-		}
-	}
-
-	/**
-	 * Método que implementa las acciones del botón añadir ciudad.
-	 */
-	public class Listener implements ActionListener {
-
-		@SuppressWarnings("unchecked")
-		public void actionPerformed(ActionEvent e) {
-			vista.getCmbBox().addItem(vista.getNuevaciudad().getText());
-			try {
-				ampliarProperties();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		}
-
-		/**
-		 * Método para añadir una líena al archivo properties.
-		 * 
-		 * @throws IOException
-		 */
-		private void ampliarProperties() throws IOException {
-			BufferedWriter bw = null;
-			FileWriter fw = null;
-			try {
-				File file = new File("src/resources/config.properties.txt");
-				fw = new FileWriter(file.getAbsoluteFile(), true);
-				bw = new BufferedWriter(fw);
-				bw.write("\t\t" + vista.getNuevaciudad().getText() + " = " + vista.getNuevaUrl().getText() + "\r\n");
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				try {
-					if (bw != null)
-						bw.close();
-					if (fw != null)
-						fw.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-					throw e;
-				}
-			}
 		}
 	}
 }

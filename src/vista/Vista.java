@@ -40,37 +40,6 @@ public class Vista extends JFrame {
 	// Label para el icono del tiempo
 	private JLabel lb0, lb1, lb2, lb3;
 	private List<JLabel> listaIconos = new ArrayList<JLabel>();
-	
-	private JComboBox<String> cmbBox;
-	private JTextField nuevaciudad, nuevaUrl;
-	private JButton btnAddCity;
-	
-	/**
-	 * Devuelve la nueva ciudad.
-	 * 
-	 * @return
-	 */
-	public JTextField getNuevaciudad() {
-		return nuevaciudad;
-	}
-
-	/**
-	 * Devuelve la nueva url
-	 * 
-	 * @return
-	 */
-	public JTextField getNuevaUrl() {
-		return nuevaUrl;
-	}
-
-	/**
-	 * Método que devuelve el botón AddCity.
-	 * 
-	 * @return
-	 */
-	public JButton getBtnAddCity() {
-		return btnAddCity;
-	}
 
 	/**
 	 * Método que devuelve el nombre de la ciudad seleccionada.
@@ -113,15 +82,6 @@ public class Vista extends JFrame {
 	 */
 	public JTextArea getTextAreaResultados() {
 		return textAreaResultados;
-	}
-
-	/**
-	 * Método que devuelve el combobox.
-	 * 
-	 * @return
-	 */
-	public JComboBox getCmbBox() {
-		return cmbBox;
 	}
 
 	/**
@@ -212,11 +172,6 @@ public class Vista extends JFrame {
 		btHamb.setBounds(268, 200, 67, 23);
 		btHamb.setBorder(null);
 		btHamb.setContentAreaFilled(false);
-		
-		cmbBox = new JComboBox<String>();		
-		cmbBox.setBounds(10, 107, 118, 20);
-		cmbBox.addItem("Otras ciudades");
-		contentPane.add(cmbBox);
 
 		contentPane.add(btBerlin);
 		contentPane.add(btFrank);
@@ -244,7 +199,7 @@ public class Vista extends JFrame {
 		lbFondo.setVerticalAlignment(SwingConstants.BOTTOM);
 		lbFondo.setBackground(Color.LIGHT_GRAY);
 		lbFondo.setIcon(new ImageIcon(sMapa));
-		lbFondo.setBounds(0, 141, 594, 490);
+		lbFondo.setBounds(0, 130, 594, 501);
 
 		ImageIcon map = new ImageIcon(sMapa);
 		this.repaint();
@@ -253,10 +208,9 @@ public class Vista extends JFrame {
 		lbFondo.setIcon(iconFondo);
 		contentPane.add(lbFondo);
 		
-		
 		panelResultados = new JPanel();
 		panelResultados.setBackground(Color.WHITE);
-		panelResultados.setBounds(0, 0, 594, 96);
+		panelResultados.setBounds(0, 0, 594, 130);
 		contentPane.add(panelResultados);
 		panelResultados.setLayout(null);
 
@@ -286,23 +240,5 @@ public class Vista extends JFrame {
 		listaIconos.add(lb1);
 		listaIconos.add(lb2);
 		listaIconos.add(lb3);
-		
-		nuevaciudad = new JTextField("Ciudad");
-		nuevaciudad.setBounds(154, 107, 124, 20);
-		contentPane.add(nuevaciudad);
-		nuevaciudad.setColumns(10);
-		
-		
-		nuevaUrl = new JTextField("URL");
-		nuevaUrl.setColumns(10);
-		nuevaUrl.setBounds(308, 107, 124, 20);
-		contentPane.add(nuevaUrl);
-		
-		btnAddCity = new JButton("addCity");
-
-		btnAddCity.setBounds(454, 106, 89, 23);
-		btnAddCity.addActionListener(cmbBox);
-		contentPane.add(btnAddCity);
-	
 	}	
 }

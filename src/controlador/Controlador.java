@@ -2,18 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Properties;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import modelo.Prediccion;
@@ -56,7 +51,6 @@ public class Controlador {
 	 * Método para obtener las url de las ciudades.
 	 * 
 	 * @param nombreCiudad - String
-	 * 
 	 * @return
 	 */
 	public URL obtenerCiudadesFichero() {

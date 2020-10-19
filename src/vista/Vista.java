@@ -18,12 +18,8 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextArea;
-import javax.swing.JComboBox;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ActionEvent;
-import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class Vista extends JFrame {
 	// Panel principal.
 	private JPanel contentPane;
